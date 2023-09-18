@@ -6,8 +6,8 @@ function PokemonCard(props) {
     <figure>
       {props.pokemon.imgSrc ? (
         <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-          alt="{props.pokemon.name}"
+          src={props.pokemon.imgSrc}
+          alt={props.pokemon.name}
         />
       ) : (
         <p>???</p>
