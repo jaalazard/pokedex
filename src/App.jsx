@@ -3,16 +3,25 @@ import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import { useState } from "react";
-
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    alert("Welcome Pokemon trainer !");
+  });
+  useEffect(() => {
+    pokemonList[pokemonIndex].name === "pikachu"
+      ? alert("Pika Pikachu !!!")
+      : "";
+  });
+
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
   const increment = () => {
-    setPokemonIndex(pokemonIndex+1);
+    setPokemonIndex(pokemonIndex + 1);
   };
   const decrement = () => {
-    setPokemonIndex(pokemonIndex-1);
+    setPokemonIndex(pokemonIndex - 1);
   };
 
   return (
@@ -21,7 +30,12 @@ function App() {
       <div>
         <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       </div>
-      <NavBar increment ={increment} decrement={decrement} pokemonIndex={pokemonIndex} pokemonList={pokemonList} />
+      <NavBar
+        increment={increment}
+        decrement={decrement}
+        pokemonIndex={pokemonIndex}
+        pokemonList={pokemonList}
+      />
     </div>
   );
 }
