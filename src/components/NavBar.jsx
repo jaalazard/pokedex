@@ -1,18 +1,13 @@
-function NavBar(props) {
-  return (
-    <div>
-      {props.pokemonIndex > 0 ? (
-        <button onClick={props.decrement}>Précédent</button>
-      ) : (
-        ""
-      )}
-      {props.pokemonIndex < props.pokemonList.length - 1 ? (
-        <button onClick={props.increment}>Suivant</button>
-      ) : (
-        ""
-      )}
-    </div>
-  );
+function NavBar(props)  {
+  const handleClick = (index) => {
+    props.setPokemonIndex(index);
 }
+  return (
+    props.pokemonList.map((pokemon, index) => (
+      <button key={pokemon.name} onClick={() => handleClick(index)}>{pokemon.name}</button>
+    )
+    )
+  );
+    }
 
 export default NavBar;
